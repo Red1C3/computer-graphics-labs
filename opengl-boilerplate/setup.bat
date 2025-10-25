@@ -1,0 +1,1 @@
+powershell -command "Invoke-WebRequest -Uri https://www.sfml-dev.org/files/SFML-3.0.2-windows-vc17-64-bit.zip -OutFile ./sfml.zip;Expand-Archive -Path "./sfml.zip" -DestinationPath "./";Copy-Item -Path ".\SFML-3.0.2\bin\*.dll" -Destination "./" -Recurse;Remove-Item -Path "./sfml.zip"" 
