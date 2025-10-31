@@ -1,9 +1,14 @@
 #include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
+#include<GL/glew.h>
+#include<glm/glm.hpp>
 
 int main()
 {
     sf::Window window(sf::VideoMode({ 800, 600 }), "OpenGL", sf::Style::Default, sf::State::Windowed);
+
+    if (glewInit() != GLEW_OK) {
+        return -1;
+    }
 
     bool running = true;
     while (running)

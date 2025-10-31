@@ -1,0 +1,5 @@
+.vs/
+*.dll
+SFML-3.0.2/
+glew-2.2.0/
+Debug/
