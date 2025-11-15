@@ -1,11 +1,18 @@
 #include "model.h"
 
-Model::Model(vector<vec3> positions, vector<vec3> colors) {
+Model::Model(vector<vec3> positions, vector<vec2> uvs) {
     verticesCount = positions.size();
-    vector<vec3> vertices = positions;
+    vector<float> vertices;
 
-    for (auto v : colors) {
-        vertices.push_back(v);
+    for (auto position : positions) {
+        vertices.push_back(position.x);
+        vertices.push_back(position.y);
+        vertices.push_back(position.z);
+    }
+
+    for (auto uv : uvs) {
+        vertices.push_back(uv.x);
+        vertices.push_back(uv.y);
     }
 
     glGenVertexArrays(1, &VAO);
@@ -23,15 +30,17 @@ Model::Model(vector<vec3> positions, vector<vec3> colors) {
     // Now we are ready to send data to VRAM
     // We send the size of the whole data
     // As well as the data itself
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * vertices.size(), vertices.data(),
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * positions.size() + sizeof(vec2) * uvs.size(), vertices.data(),
         GL_STATIC_DRAW);
 
     // We describe how the data is read from the vertex shader
     // Notice how the position is 3 floats so we set the stride (space between
     // each vertex) to 3*sizeof(float)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0,
-        (void*)(((vertices.size() / 2)) * sizeof(vec3)));
+
+    // Note the second parameter is 2 since uvs are 2D vectors
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
+        (void*)((positions.size()) * sizeof(vec3)));
 
     // Finally we need to set the location 0 as enabled
     glEnableVertexAttribArray(0);

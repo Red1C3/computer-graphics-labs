@@ -9,7 +9,7 @@ using namespace std;
 
 class Model {
 public:
-    Model(vector<vec3> postions, vector<vec3> colors);
+    Model(vector<vec3> postions, vector<vec2> uvs);
     void draw();
 private:
     GLuint VAO;

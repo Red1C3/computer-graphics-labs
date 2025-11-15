@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(ProjectDir)\glm;$(ProjectDir)\SFML-3.0.2\include;$(ProjectDir)\glew-2.2.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\glew-2.2.0\lib\Release\x64;$(ProjectDir)\SFML-3.0.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\assimp\include;$(ProjectDir)\glm;$(ProjectDir)\SFML-3.0.2\include;$(ProjectDir)\glew-2.2.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\assimp\lib\Debug;$(ProjectDir)\glew-2.2.0\lib\Release\x64;$(ProjectDir)\SFML-3.0.2\lib;$(LibraryPath)</LibraryPath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-network.lib;sfml-audio.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-audio-d.lib;opengl32.lib;glew32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
