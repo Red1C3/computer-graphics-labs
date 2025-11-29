@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(ProjectDir)\assimp\include;$(ProjectDir)\glm;$(ProjectDir)\SFML-3.0.2\include;$(ProjectDir)\glew-2.2.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\;$(ProjectDir)\assimp\include;$(ProjectDir)\glm;$(ProjectDir)\SFML-3.0.2\include;$(ProjectDir)\glew-2.2.0\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\assimp\lib\Debug;$(ProjectDir)\glew-2.2.0\lib\Release\x64;$(ProjectDir)\SFML-3.0.2\lib;$(LibraryPath)</LibraryPath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
